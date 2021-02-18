@@ -3,9 +3,3 @@
     Properties:
       Handler: index.handler
       Runtime: nodejs12.x
-      plugins:
-  - serverless-webpack
-custom:
-  webpackIncludeModules:
-    forceInclude:
-      - dynamodb-doc
