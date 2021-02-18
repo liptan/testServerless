@@ -1,17 +1,11 @@
+    phases:
+      install: npm install
     Properties:
       Handler: index.handler
       Runtime: nodejs12.x
-      CodeUri: .
-      Description: >-
-        A simple backend (read/write to DynamoDB) with a RESTful API endpoint using Amazon API Gateway.
-      MemorySize: 512
-      Timeout: 10
-      Policies:
-        - DynamoDBCrudPolicy:
-            TableName: !Ref TableNameParameter
-      Events:
-        Api1:
-          Type: Api
-          Properties:
-            Path: /MyResource
-            Method: ANY
+      plugins:
+  - serverless-webpack
+custom:
+  webpackIncludeModules:
+    forceInclude:
+      - dynamodb-doc
