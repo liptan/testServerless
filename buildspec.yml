@@ -1,5 +1,21 @@
-    phases:
-      install: npm install
-    Properties:
-      Handler: index.handler
-      Runtime: nodejs12.x
+    service: usersCrud
+    provider: aws
+    functions:
+    # Your Serverless function definitions go here.
+    serverlessrepo-microservi-microservicehttpendpoint-ZKATCRSV8DGY
+
+    resources: # CloudFormation template syntax from here on.
+      Resources:
+        usersTable:
+          Type: AWS::DynamoDB::Table
+          Properties:
+            TableName: usersTable
+            AttributeDefinitions:
+              - AttributeName: email
+                AttributeType: S
+            KeySchema:
+              - AttributeName: email
+                KeyType: HASH
+            ProvisionedThroughput:
+              ReadCapacityUnits: 1
+              WriteCapacityUnits: 1
