@@ -1,9 +1,5 @@
     service: usersCrud
     provider: aws
-    functions:
-    # Your Serverless function definitions go here.
-    serverlessrepo-microservi-microservicehttpendpoint-ZKATCRSV8DGY
-
     resources: # CloudFormation template syntax from here on.
       Resources:
         usersTable:
